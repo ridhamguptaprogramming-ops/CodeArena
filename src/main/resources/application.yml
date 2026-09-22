@@ -1,0 +1,12 @@
+spring:
+  application: { name: codearena-api }
+  datasource: { url: ${DB_URL:jdbc:postgresql://localhost:5432/codearena}, username: ${DB_USERNAME:codearena}, password: ${DB_PASSWORD:codearena} }
+  jpa: { open-in-view: false, hibernate: { ddl-auto: validate } }
+  flyway: { enabled: true }
+  data: { redis: { host: ${REDIS_HOST:localhost}, port: ${REDIS_PORT:6379} } }
+  rabbitmq: { host: ${RABBITMQ_HOST:localhost}, port: ${RABBITMQ_PORT:5672}, username: ${RABBITMQ_USERNAME:codearena}, password: ${RABBITMQ_PASSWORD:codearena} }
+server: { error: { include-message: never } }
+app:
+  jwt: { secret: ${JWT_SECRET:change-this-to-a-32-byte-minimum-development-secret}, access-ttl-seconds: 900, refresh-ttl-seconds: 2592000 }
+  cors-origins: ${CORS_ORIGINS:http://localhost:3000}
+management: { endpoints: { web: { exposure: { include: health,info,metrics } } } }

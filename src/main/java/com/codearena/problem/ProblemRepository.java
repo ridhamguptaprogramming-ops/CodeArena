@@ -1,0 +1,1 @@
+package com.codearena.problem; import java.util.*; import org.springframework.data.jpa.repository.JpaRepository; public interface ProblemRepository extends JpaRepository<Problem,UUID>{ List<Problem> findByPublishedTrue(); }

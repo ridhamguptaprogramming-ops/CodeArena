@@ -1,0 +1,7 @@
+CREATE TABLE users (id UUID PRIMARY KEY, email VARCHAR(254) NOT NULL UNIQUE, password_hash VARCHAR(255) NOT NULL, display_name VARCHAR(100) NOT NULL, email_verified BOOLEAN NOT NULL DEFAULT FALSE, created_at TIMESTAMPTZ NOT NULL);
+CREATE TABLE user_roles (user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE, role VARCHAR(30) NOT NULL, PRIMARY KEY(user_id,role));
+CREATE TABLE problems (id UUID PRIMARY KEY, author_id UUID NOT NULL REFERENCES users(id), title VARCHAR(200) NOT NULL, description TEXT NOT NULL, difficulty VARCHAR(30), time_limit_ms INTEGER NOT NULL, memory_limit_mb INTEGER NOT NULL, maximum_score INTEGER NOT NULL, published BOOLEAN NOT NULL DEFAULT FALSE, created_at TIMESTAMPTZ NOT NULL);
+CREATE TABLE problem_supported_languages (problem_id UUID NOT NULL REFERENCES problems(id) ON DELETE CASCADE, supported_languages VARCHAR(255));
+CREATE TABLE problem_tags (problem_id UUID NOT NULL REFERENCES problems(id) ON DELETE CASCADE, tags VARCHAR(255));
+CREATE TABLE submissions (id UUID PRIMARY KEY, student_id UUID NOT NULL REFERENCES users(id), problem_id UUID NOT NULL REFERENCES problems(id), contest_id UUID, language VARCHAR(32) NOT NULL, source_code TEXT NOT NULL, status VARCHAR(30) NOT NULL, verdict VARCHAR(40) NOT NULL, execution_time_ms BIGINT, memory_usage_kb BIGINT, score INTEGER, created_at TIMESTAMPTZ NOT NULL);
+CREATE INDEX idx_submission_student_created ON submissions(student_id,created_at); CREATE INDEX idx_submission_problem ON submissions(problem_id);

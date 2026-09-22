@@ -1,0 +1,3 @@
+package com.codearena.problem;
+import jakarta.persistence.*; import java.time.Instant; import java.util.*;
+@Entity @Table(name="problems") public class Problem { @Id @GeneratedValue(strategy=GenerationType.UUID) public UUID id; @Column(nullable=false) public UUID authorId; @Column(nullable=false,length=200) public String title; @Column(nullable=false,columnDefinition="text") public String description; public String difficulty; public int timeLimitMs=2000; public int memoryLimitMb=256; public int maximumScore=100; @ElementCollection public Set<String> supportedLanguages=new HashSet<>(); @ElementCollection public Set<String> tags=new HashSet<>(); public boolean published=false; public Instant createdAt=Instant.now(); }

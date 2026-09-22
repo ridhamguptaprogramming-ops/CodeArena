@@ -1,0 +1,14 @@
+# Java / Maven
+target/
+*.class
+
+# Next.js / Node.js
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Local environment and tooling
+.env
+.env.local
+!.env.example
+.DS_Store
