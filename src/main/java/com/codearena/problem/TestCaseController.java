@@ -23,7 +23,7 @@ public class TestCaseController {
     }
     @PostMapping @PreAuthorize("hasAnyRole('TEACHER','ADMIN','SUPER_ADMIN')") @ResponseStatus(HttpStatus.CREATED)
     public ApiResponse<Map<String,Object>> create(@PathVariable UUID problemId, @RequestBody @Valid Create body) {
-        var p=problems.findById(problemId).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
+        var p=problems.findById(java.util.Objects.requireNonNull(problemId)).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
         var c=new TestCase(); c.problemId=p.id; c.inputData=body.input; c.expectedOutput=body.expectedOutput; c.hidden=body.hidden; c.weight=body.weight; c.caseKind=body.kind==null?"STANDARD":body.kind.toUpperCase(Locale.ROOT);
         c=cases.save(c); return ApiResponse.of(Map.of("id",c.id,"hidden",c.hidden,"kind",c.caseKind));
     }
