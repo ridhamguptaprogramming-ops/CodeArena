@@ -1,6 +1,16 @@
 # Java / Maven
 target/
 *.class
+*.log
+.idea/
+.vscode/
+.env.*
+!.env.example
+tmp/
+temp/
+execution-work/
+docker-data/
+*.pid
 
 # Next.js / Node.js
 frontend/node_modules/
