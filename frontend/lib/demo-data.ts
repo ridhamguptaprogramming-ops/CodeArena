@@ -1,0 +1,13 @@
+import type { Contest, Problem } from "./types";
+
+export const demoProblems: Problem[] = [
+  { id: "demo-102", title: "Two Sum", slug: "two-sum", description: "Given an array of integers and a target, return the indices of two values that add up to the target.", difficulty: "EASY", timeLimitMs: 2000, memoryLimitMb: 256, maximumScore: 100, supportedLanguages: ["Python", "Java", "C++", "JavaScript"], tags: ["Arrays", "Hash Map"] },
+  { id: "demo-217", title: "Longest Substring Without Repeating Characters", slug: "longest-substring", description: "Find the length of the longest substring with no repeated characters.", difficulty: "MEDIUM", timeLimitMs: 2000, memoryLimitMb: 256, maximumScore: 100, supportedLanguages: ["Python", "Java", "C++"], tags: ["Strings", "Sliding Window"] },
+  { id: "demo-341", title: "Number of Islands", slug: "number-of-islands", description: "Count connected islands in a two dimensional grid.", difficulty: "MEDIUM", timeLimitMs: 2000, memoryLimitMb: 256, maximumScore: 100, supportedLanguages: ["Python", "Java", "C++"], tags: ["Graphs", "BFS"] },
+  { id: "demo-408", title: "Minimum Cost Path", slug: "minimum-cost-path", description: "Find the minimum cost to reach the final node in a weighted directed graph.", difficulty: "HARD", timeLimitMs: 2000, memoryLimitMb: 256, maximumScore: 100, supportedLanguages: ["Python", "Java", "C++"], tags: ["Graphs", "Dynamic Programming"] },
+  { id: "demo-512", title: "Merge Intervals", slug: "merge-intervals", description: "Merge all overlapping intervals and return the remaining disjoint intervals.", difficulty: "MEDIUM", timeLimitMs: 2000, memoryLimitMb: 256, maximumScore: 100, supportedLanguages: ["Python", "Java", "C++", "JavaScript"], tags: ["Arrays", "Sorting"] },
+];
+export const demoContests: Contest[] = [
+  { id: "demo-contest-1", name: "Autumn Algorithm Sprint", description: "A focused 90-minute challenge across arrays, graphs, and dynamic programming.", startsAt: new Date(Date.now() + 86400000).toISOString(), endsAt: new Date(Date.now() + 90000000).toISOString(), registrationDeadline: new Date(Date.now() + 80000000).toISOString(), status: "SCHEDULED", maximumParticipants: 500, visibility: "PUBLIC" },
+  { id: "demo-contest-2", name: "Campus Coding League", description: "A weekly inter-college competition for emerging problem solvers.", startsAt: new Date(Date.now() + 5 * 86400000).toISOString(), endsAt: new Date(Date.now() + 5 * 86400000 + 7200000).toISOString(), registrationDeadline: new Date(Date.now() + 4 * 86400000).toISOString(), status: "SCHEDULED", maximumParticipants: 1000, visibility: "PUBLIC" },
+];
